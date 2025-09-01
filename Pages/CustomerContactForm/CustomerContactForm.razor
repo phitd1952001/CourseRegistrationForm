@@ -17,7 +17,7 @@
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Full Name *</label>
                             <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
-                                   @bind="@userContact.FullName">
+                                @bind="@userContact.FullName">
                             <ValidationMessage For="@(() => userContact.FullName)" />
                         </div>
 
@@ -25,7 +25,7 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Email *</label>
                             <input type="email" class="form-control" id="email" placeholder="Enter your email address"
-                                   @bind="@userContact.Email">
+                                @bind="@userContact.Email">
                             <ValidationMessage For="@(() => userContact.Email)" />
                         </div>
 
@@ -33,7 +33,7 @@
                         <div class="mb-3">
                             <label for="phoneNumber" class="form-label">Phone Number *</label>
                             <input type="number" class="form-control" id="phoneNumber"
-                                   placeholder="Enter your phone number" @bind="@userContact.PhoneNumber">
+                                placeholder="Enter your phone number" @bind="@userContact.PhoneNumber">
                             <ValidationMessage For="@(() => userContact.PhoneNumber)" />
                         </div>
 
@@ -41,7 +41,7 @@
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
                             <input type="text" class="form-control" id="address" placeholder="Enter your address"
-                                   @bind="@userContact.Address">
+                                @bind="@userContact.Address">
                             <ValidationMessage For="@(() => userContact.Address)" />
                         </div>
 
@@ -49,7 +49,7 @@
                         <div class="mb-3">
                             <label for="message">Message *</label>
                             <textarea class="form-control" rows="5" id="message" placeholder="Enter your message"
-                                      @bind="@userContact.Message"></textarea>
+                                @bind="@userContact.Message"></textarea>
                             <ValidationMessage For="@(() => userContact.Message)" />
                         </div>
 
@@ -69,7 +69,7 @@
                         <!-- AcceptTerm -->
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="termsContact"
-                                   @bind="@userContact.AcceptTerms">
+                                @bind="@userContact.AcceptTerms">
                             <label class="form-check-label" for="termsContact">I agree to the terms *</label>
                             <ValidationMessage For="@(() => userContact.AcceptTerms)" />
                         </div>
@@ -92,7 +92,8 @@
                         <li class="list-group-item"><strong>Address:</strong> @userContact.Address</li>
                         <li class="list-group-item"><strong>Comments:</strong> @userContact.Message</li>
                         <li class="list-group-item"><strong>Service:</strong> @userContact.Service</li>
-                        <li class="list-group-item"><strong>Accept Terms:</strong> @(userContact.AcceptTerms ? "Yes" : "No")</li>
+                        <li class="list-group-item"><strong>Accept Terms:</strong> @(userContact.AcceptTerms ? "Yes" :
+                                                        "No")</li>
                     </ul>
                 </div>
             </div>

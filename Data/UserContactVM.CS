@@ -21,7 +21,7 @@ public class UserContactVM
     [StringLength(250, MinimumLength = 10, ErrorMessage = "Message must be at least 10 characters long.")]
     public string Message { get; set; }
 
-[Required(ErrorMessage = "Please select a service.")]
+    [Required(ErrorMessage = "Please select a service.")]
     public string Service { get; set; }
 
     [Required]

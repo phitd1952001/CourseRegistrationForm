@@ -1,19 +1,22 @@
 ﻿<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid bg-primary">
     <div class="logo">
-        <i class="fa-solid fa-keyboard"></i>
-        <a class="navbar-brand" href="/">Form</a>
+      <i class="fa-solid fa-keyboard"></i>
+      <a class="navbar-brand" href="/">Form</a>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse ml-5" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <NavLink class="nav-link active" aria-current="page" href="/" activeClass="active" Match="NavLinkMatch.All">CustomerContact</NavLink>
+          <NavLink class="nav-link" aria-current="page" activeClass="active" href="/" Match="NavLinkMatch.All">
+            CustomerContact</NavLink>
         </li>
         <li class="nav-item">
-          <NavLink class="nav-link active" aria-current="page" href="/course-registration">CourseRegistration</NavLink>
+          <NavLink class="nav-link" aria-current="page" activeClass="active" href="/course-registration"
+            Match="NavLinkMatch.Prefix">CourseRegistration</NavLink>
         </li>
       </ul>
     </div>
@@ -21,25 +24,40 @@
 </nav>
 
 <style>
-    .logo {
-        display: flex;
-        align-items: center;
-        font-size: 25px;
-        color: white !important;
-    }
+  .navbar .container-fluid {
+    background-color: rgb(6, 121, 215) !important;
+    width: 85%;
+    border: 1px solid rgb(6, 121, 215) !important;
+    border-radius: 0.5rem;
+  }
 
-    .logo .navbar-brand {
-        color: white !important;
-        font-size: 25px;
-    }
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: white !important;
+    margin-left: 20px;
+  }
 
-    .nav-link{
-        color: white !important;
-        font-size: 25px;
-    }
+  .logo .navbar-brand {
+    color: white !important;
+    font-size: 25px;
 
-    .nav-link:hover{
-        color: red !important;
-        transition: 0.3s;
-    }
+  }
+
+  .nav-link {
+    color: white !important;
+    font-size: 25px;
+    margin: 0 5px;
+  }
+
+  .nav-link:hover {
+    color: red !important;
+    transition: 0.3s;
+  }
+
+  .nav-link.active {
+    color: red !important;
+    font-weight: bold;
+  }
 </style>

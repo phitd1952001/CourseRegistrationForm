@@ -26,7 +26,7 @@ public class UserRegistrationVM
     public DateTime DateTime { get; set; }
 
     [Required(ErrorMessage = "Comment is required")]
-    [StringLength(250, MinimumLength = 10 , ErrorMessage = "Comment must be at least 10 characters long.")]
+    [StringLength(250, MinimumLength = 10, ErrorMessage = "Comment must be at least 10 characters long.")]
     public string Comment { get; set; }
 
     [Required(ErrorMessage = "You must accept the terms")]

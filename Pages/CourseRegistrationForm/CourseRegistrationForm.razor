@@ -84,7 +84,8 @@
 
                         <!-- AcceptTerms -->
                         <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="termsRegistration" @bind="user.AcceptTerms" />
+                            <input type="checkbox" class="form-check-input" id="termsRegistration"
+                                @bind="user.AcceptTerms" />
                             <label class="form-check-label" for="termsRegistration">I agree to the terms *</label>
                             <ValidationMessage For="@(() => user.AcceptTerms)" />
                         </div>

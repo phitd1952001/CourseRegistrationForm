@@ -1,0 +1,36 @@
+/* _content/FormRegistration/Shared/NavMenu.razor.rz.scp.css */
+.navbar .container-fluid[b-m2k1f93ul1]{
+    background-color: rgb(6, 121, 215) !important;
+    width: 85%;
+    border: 1px solid rgb(6, 121, 215) !important;
+    border-radius: 0.5rem;
+}
+nav .logo[b-m2k1f93ul1] {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: white !important;
+    margin-left: 20px;
+}
+
+.logo .navbar-brand[b-m2k1f93ul1] {
+    color: white !important;
+    font-size: 25px;
+
+}
+
+.collapse ul li .nav-link[b-m2k1f93ul1]{
+    color: white !important;
+    font-size: 25px !important;
+    margin: 0 5px;
+}
+
+.nav-link:hover[b-m2k1f93ul1]{
+    color: red !important;
+    transition: 0.3s;
+}
+
+.nav-link.active[b-m2k1f93ul1] {
+    color: red !important;
+    font-weight: bold;
+}
