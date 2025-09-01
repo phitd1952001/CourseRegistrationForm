@@ -30,6 +30,6 @@ public class UserRegistrationVM
     public string Comment { get; set; }
 
     [Required(ErrorMessage = "You must accept the terms")]
-    [Range(typeof(bool), "true", "true", ErrorMessage = "You must agree to the terms")]
+    [Range(typeof(bool), "true", "true", ErrorMessage = "You must agree before submitting")]
     public bool AcceptTerms { get; set; }
 }

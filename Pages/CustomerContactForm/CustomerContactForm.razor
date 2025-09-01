@@ -1,0 +1,105 @@
+@page "/"
+<PageTitle>Customer Contact Form</PageTitle>
+
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="row w-100 g-4" style="max-width: 1000px;">
+
+        <!-- Form bên trái -->
+        <div class="col-md-6">
+            <div class="card shadow rounded-3 h-100">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Customer Contact Form</h3>
+
+                    <EditForm Model="@userContact">
+                        <DataAnnotationsValidator />
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
+                                   @bind="@userContact.FullName">
+                            <ValidationMessage For="@(() => userContact.FullName)" />
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email address"
+                                   @bind="@userContact.Email">
+                            <ValidationMessage For="@(() => userContact.Email)" />
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="mb-3">
+                            <label for="phoneNumber" class="form-label">Phone Number *</label>
+                            <input type="number" class="form-control" id="phoneNumber"
+                                   placeholder="Enter your phone number" @bind="@userContact.PhoneNumber">
+                            <ValidationMessage For="@(() => userContact.PhoneNumber)" />
+                        </div>
+
+                        <!-- Address -->
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="Enter your address"
+                                   @bind="@userContact.Address">
+                            <ValidationMessage For="@(() => userContact.Address)" />
+                        </div>
+
+                        <!-- Message -->
+                        <div class="mb-3">
+                            <label for="message">Message *</label>
+                            <textarea class="form-control" rows="5" id="message" placeholder="Enter your message"
+                                      @bind="@userContact.Message"></textarea>
+                            <ValidationMessage For="@(() => userContact.Message)" />
+                        </div>
+
+                        <!-- Select Service -->
+                        <div class="mb-3">
+                            <label for="selectService">Select Service *</label>
+                            <select class="form-select" id="selectService" @bind="@userContact.Service">
+                                <option value="" disabled selected>Choose a service...</option>
+                                <option value="1">Service 1</option>
+                                <option value="2">Service 2</option>
+                                <option value="3">Service 3</option>
+                                <option value="4">Service 4</option>
+                            </select>
+                            <ValidationMessage For="@(() => userContact.Service)" />
+                        </div>
+
+                        <!-- AcceptTerm -->
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="termsContact"
+                                   @bind="@userContact.AcceptTerms">
+                            <label class="form-check-label" for="termsContact">I agree to the terms *</label>
+                            <ValidationMessage For="@(() => userContact.AcceptTerms)" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hiển thị thông tin bên phải -->
+        <div class="col-md-6">
+            <div class="card shadow rounded-3 h-100">
+                <div class="card-body">
+                    <h4 class="card-title text-center mb-3">Entered Information</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Full Name:</strong> @userContact.FullName</li>
+                        <li class="list-group-item"><strong>Email:</strong> @userContact.Email</li>
+                        <li class="list-group-item"><strong>Phone:</strong> @userContact.PhoneNumber</li>
+                        <li class="list-group-item"><strong>Address:</strong> @userContact.Address</li>
+                        <li class="list-group-item"><strong>Comments:</strong> @userContact.Message</li>
+                        <li class="list-group-item"><strong>Service:</strong> @userContact.Service</li>
+                        <li class="list-group-item"><strong>Accept Terms:</strong> @(userContact.AcceptTerms ? "Yes" : "No")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private UserContactVM userContact = new UserContactVM();
+}

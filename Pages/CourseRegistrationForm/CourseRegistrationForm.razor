@@ -1,11 +1,12 @@
-﻿@page "/"
+﻿@page "/course-registration"
+<PageTitle>Course Registration Form</PageTitle>
 
 <div class="container min-vh-100 d-flex justify-content-center align-items-center">
     <div class="row w-100 g-4" style="max-width: 1000px;">
         <div class="col-md-6">
             <div class="card shadow rounded-3">
                 <div class="card-body">
-                    <h3 class="card-title text-center mb-4">Course Registration</h3>
+                    <h3 class="card-title text-center mb-4">Course Registration Form</h3>
                     <EditForm Model="user">
                         <DataAnnotationsValidator />
 
@@ -83,8 +84,8 @@
 
                         <!-- AcceptTerms -->
                         <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="terms" @bind="user.AcceptTerms" />
-                            <label class="form-check-label" for="terms">I agree to the terms *</label>
+                            <input type="checkbox" class="form-check-input" id="termsRegistration" @bind="user.AcceptTerms" />
+                            <label class="form-check-label" for="termsRegistration">I agree to the terms *</label>
                             <ValidationMessage For="@(() => user.AcceptTerms)" />
                         </div>
 
