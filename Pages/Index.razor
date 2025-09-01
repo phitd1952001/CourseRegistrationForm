@@ -1,77 +1,127 @@
 ﻿@page "/"
 
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="card shadow p-4" style="max-width: 700px; width: 100%;">
-        <h3 class="text-center mb-4">Course Registration Form</h3>
-        <form>
-            <!-- Full Name -->
-            <div class="mb-3">
-                <label for="fullName" class="form-label">Full Name *</label>
-                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
-            </div>
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="row w-100 g-4" style="max-width: 1000px;">
+        <div class="col-md-6">
+            <div class="card shadow rounded-3">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Course Registration</h3>
+                    <EditForm Model="user">
+                        <DataAnnotationsValidator />
 
-            <!-- Email -->
-            <div class="mb-3">
-                <label for="email" class="form-label">Email *</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
-            </div>
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" @bind="user.FullName"
+                                placeholder="Enter your full name" />
+                            <ValidationMessage For="@(() => user.FullName)" />
+                        </div>
 
-            <!-- Phone Number -->
-            <div class="mb-3">
-                <label for="phoneNumber" class="form-label">Phone Number *</label>
-                <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number" required>
-            </div>
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-control" @bind="user.Email"
+                                placeholder="Enter your email" />
+                            <ValidationMessage For="@(() => user.Email)" />
+                        </div>
 
-            <!-- Select Course -->
-            <div class="mb-3">
-                <label for="selectCourse" class="form-label">Select Course *</label>
-                <select class="form-select form-control" id="selectCourse" required>
-                    <option selected disabled>Choose a Course...</option>
-                    <option value="c">C</option>
-                    <option value="cpp">C++</option>
-                    <option value="csharp">C#</option>
-                    <option value="html">HTML</option>
-                    <option value="css">CSS</option>
-                    <option value="js">JavaScript</option>
-                    <option value="reactjs">ReactJS</option>
-                </select>
-            </div>
+                        <!-- Phone Number -->
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" @bind="user.PhoneNumber"
+                                placeholder="Enter your phone" />
+                            <ValidationMessage For="@(() => user.PhoneNumber)" />
+                        </div>
 
-            <!-- Study Mode -->
-            <div class="mb-3">
-                <label class="form-label">Study Mode *</label>
-                <div class="d-flex gap-3">
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" id="studentOnline" name="studentRadio" value="online" checked>
-                        <label class="form-check-label" for="studentOnline">Online</label>
-                    </div>
-                    <div class="form-check ml-3">
-                        <input type="radio" class="form-check-input" id="studentOffline" name="studentRadio" value="offline">
-                        <label class="form-check-label" for="studentOffline">Offline</label>
-                    </div>
+                        <!-- Course -->
+                        <div class="mb-3">
+                            <label class="form-label">Select Course *</label>
+                            <select class="form-select" @bind="user.Course">
+                                <option disabled selected>Choose a Course...</option>
+                                <option value="c">C</option>
+                                <option value="cpp">C++</option>
+                                <option value="csharp">C#</option>
+                                <option value="html">HTML</option>
+                                <option value="css">CSS</option>
+                                <option value="js">JavaScript</option>
+                                <option value="reactjs">ReactJS</option>
+                            </select>
+                            <ValidationMessage For="@(() => user.Course)" />
+                        </div>
+
+                        <!-- Study Mode -->
+                        <div class="mb-3">
+                            <label class="form-label">Study Mode *</label>
+                            <InputRadioGroup @bind-Value="user.Study">
+                                <div class="d-flex gap-3">
+                                    <div class="form-check">
+                                        <InputRadio class="form-check-input" Value="true" id="online" />
+                                        <label for="online" class="form-check-label">Online</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <InputRadio class="form-check-input" Value="false" id="offline" />
+                                        <label for="offline" class="form-check-label">Offline</label>
+                                    </div>
+                                </div>
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => user.Study)" />
+                        </div>
+
+                        <!-- DateTime -->
+                        <div class="mb-3">
+                            <label class="form-label">Preferred Start Date *</label>
+                            <input type="datetime-local" class="form-control" @bind="user.DateTime" />
+                            <ValidationMessage For="@(() => user.DateTime)" />
+                        </div>
+
+                        <!-- Comments -->
+                        <div class="mb-3">
+                            <label class="form-label">Comments or Notes *</label>
+                            <textarea class="form-control" rows="4" @bind="user.Comment"></textarea>
+                            <ValidationMessage For="@(() => user.Comment)" />
+                        </div>
+
+                        <!-- AcceptTerms -->
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" @bind="user.AcceptTerms" />
+                            <label class="form-check-label" for="terms">I agree to the terms *</label>
+                            <ValidationMessage For="@(() => user.AcceptTerms)" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </EditForm>
                 </div>
             </div>
+        </div>
 
-            <!-- Preferred Start Date -->
-            <div class="mb-3">
-                <label for="preferred" class="form-label">Preferred Start Date *</label>
-                <input type="datetime-local" class="form-control" id="preferred" required>
+        <!--Hiển Thị Thông Tin -->
+        <div class="col-md-6">
+            <div class="card shadow rounded-3">
+                <div class="card-body">
+                    <h4 class="card-title text-center mb-3">Entered Information</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Full Name:</strong> @user.FullName</li>
+                        <li class="list-group-item"><strong>Email:</strong> @user.Email</li>
+                        <li class="list-group-item"><strong>Phone:</strong> @user.PhoneNumber</li>
+                        <li class="list-group-item"><strong>Course:</strong> @user.Course</li>
+                        <li class="list-group-item"><strong>Study Mode:</strong> @(user.Study == true ? "Online" :
+                                                        user.Study == false ? "Offline" : "")</li>
+                        <li class="list-group-item"><strong>Start Date:</strong> @user.DateTime</li>
+                        <li class="list-group-item"><strong>Comments:</strong> @user.Comment</li>
+                        <li class="list-group-item"><strong>Accept Terms:</strong> @(user.AcceptTerms ? "Yes" : "No")
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <!-- Comments or Notes -->
-            <div class="mb-3">
-                <label for="message" class="form-label">Comments or Notes *</label>
-                <textarea class="form-control" rows="5" id="message" placeholder="Enter any additional information" required></textarea>
-            </div>
-
-            <!-- Terms and Conditions -->
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="Check1" required>
-                <label class="form-check-label" for="Check1">I agree to the terms and conditions *</label>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary w-100">Submit</button>
-        </form>
+        </div>
     </div>
 </div>
+
+@code {
+    private UserRegistrationVM user = new UserRegistrationVM();
+
+    protected override void OnInitialized()
+    {
+        user.DateTime = DateTime.Now;
+    }
+}
