@@ -1,0 +1,77 @@
+﻿@page "/"
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow p-4" style="max-width: 700px; width: 100%;">
+        <h3 class="text-center mb-4">Course Registration Form</h3>
+        <form>
+            <!-- Full Name -->
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name *</label>
+                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email *</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number *</label>
+                <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Select Course -->
+            <div class="mb-3">
+                <label for="selectCourse" class="form-label">Select Course *</label>
+                <select class="form-select form-control" id="selectCourse" required>
+                    <option selected disabled>Choose a Course...</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="csharp">C#</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="js">JavaScript</option>
+                    <option value="reactjs">ReactJS</option>
+                </select>
+            </div>
+
+            <!-- Study Mode -->
+            <div class="mb-3">
+                <label class="form-label">Study Mode *</label>
+                <div class="d-flex gap-3">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="studentOnline" name="studentRadio" value="online" checked>
+                        <label class="form-check-label" for="studentOnline">Online</label>
+                    </div>
+                    <div class="form-check ml-3">
+                        <input type="radio" class="form-check-input" id="studentOffline" name="studentRadio" value="offline">
+                        <label class="form-check-label" for="studentOffline">Offline</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preferred Start Date -->
+            <div class="mb-3">
+                <label for="preferred" class="form-label">Preferred Start Date *</label>
+                <input type="datetime-local" class="form-control" id="preferred" required>
+            </div>
+
+            <!-- Comments or Notes -->
+            <div class="mb-3">
+                <label for="message" class="form-label">Comments or Notes *</label>
+                <textarea class="form-control" rows="5" id="message" placeholder="Enter any additional information" required></textarea>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="Check1" required>
+                <label class="form-check-label" for="Check1">I agree to the terms and conditions *</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+</div>

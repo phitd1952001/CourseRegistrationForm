@@ -1,0 +1,42 @@
+﻿<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid bg-primary">
+    <div class="logo">
+        <i class="fa-solid fa-keyboard"></i>
+        <a class="navbar-brand" href="/">FormRegistration</a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <NavLink class="nav-link active" aria-current="page" href="/">Home</NavLink>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+        color: white !important;
+    }
+
+    .logo .navbar-brand {
+        color: white !important;
+        font-size: 25px;
+    }
+
+    .nav-link{
+        color: white !important;
+        font-size: 25px;
+    }
+
+    .nav-link:hover{
+        color: red !important;
+        transition: 0.3s;
+    }
+</style>
